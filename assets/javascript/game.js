@@ -48,6 +48,7 @@ function choosePlayer() {
 		if (chosen == "frieza") {
 			chosen = frieza;
 		} 
+		$('.chosen .name').html(chosen.name);
 }
 
 function pickEnemy {
@@ -65,30 +66,17 @@ function pickEnemy {
 		if (badGuy == "piccolo") {
 			badGuy = piccolo;
 		}
+		$('.toFight .name').html(badGuy.name);
+
 }
 
-
-function readyTheField () {
-	if (badGuy == "frieza") {
-		badGuy = frieza;
-	} 
-	if (badGuy == "goku") {
-		badGuy = goku;
-	}
-	if (badGuy == "vegeta") {
-		badGuy = vegeta;
-	}
-	if (badGuy == "piccolo") {
-		badGuy = piccolo;
-	}  
-}
 
 function attack () { 
 	badGuy.health -= chosen.attackPower;
 	chosen.health -= badGuy.counterAtk;
 	chosen.attackPower += chosen.attackAdd; 
-	$('.chosen . health').html(chosen.health);
-	$('.toFight . health').html(badGuy.health);
+	$('.chosen .health').html(chosen.health);
+	$('.toFight .health').html(badGuy.health);
 
 
 	if(chosen.health <= 0 || badGuy.health <= 0) { 
