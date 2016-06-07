@@ -1,33 +1,33 @@
 var goku = {
 	name: "Goku",
 	health: 175,
-	attackPower: 18,
-	attckAdd: 18,
-	counterAtk: 21,
+	attackPower: 12,
+	attackAdd: 12,
+	counterAtk: 17,
 }
 
 var frieza = {
 	name: "Frieza",
 	health: 140,
-	attackPower: 25,
-	attackAdd: 25,
-	counterAtk: 24,
+	attackPower: 14,
+	attackAdd: 14,
+	counterAtk: 19,
 }
 
 var vegeta = {
 	name: "Vegeta",
 	health: 180,
-	attackPower: 16,
-	attackAdd: 16, 
-	counterAtk: 19,
+	attackPower: 10,
+	attackAdd: 10, 
+	counterAtk: 18,
 }
 
 var piccolo = { 
 	name: "Piccolo",
 	health: 250, 
-	attackPower: 12,
-	attackAdd: 12, 
-	counterAtk: 14, 
+	attackPower: 11,
+	attackAdd: 11, 
+	counterAtk: 15, 
 }
 
 var chosen; 
@@ -50,6 +50,7 @@ function choosePlayer() {
 			chosen = frieza;
 		} 
 		$('#chosenName').html(chosen.name);
+		$('#chosenHealth').html(chosen.health)
 		$('.toChoose').on('click', pickEnemy);
 
 
@@ -71,6 +72,7 @@ function pickEnemy (){
 			badGuy = piccolo;
 		}
 		$('#badguyName').html(badGuy.name);
+		$('#badGuyHealth').html(badGuy.health)
 
 }
 if(badGuy != "unfined"){
@@ -87,13 +89,14 @@ function attack () {
 	$('#badGuyHealth').html(badGuy.health);
 
 
-	if(chosen.health <= 0 || badGuy.health <= 0) { 
-		if(chosen.health <= 0) { 
-			$('.info').hmtl("You have lost the fight!");
+	if(chosen.health < 1 || badGuy.health < 1) { 
+		if(chosen.health < 1) { 
+			$('.info').html("You have lost the fight!");
 			$('btn-attack').on('click', restart);
 		} else { 
 			$('.info').html("You have beaten " + badGuy.name + "!");
-			$('.toFight div').remove(); 
+			$('.toFight div').remove();
+			$('.toChoose').on('click', pickEnemy);
 		}
 		if($('.enemey div').length== 0) {
 			$('.info').hmtl("You have won the fight!");
@@ -115,7 +118,7 @@ $(document).ready(function(){
      });
 
 
-		$('.btn-attck').click(attack); 
+		$('.btn-attack').click(attack); 
 
 
 });
