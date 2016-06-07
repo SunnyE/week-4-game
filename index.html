@@ -9,16 +9,16 @@
 </head>
 <body>
 	<div class = "charlist row">
-	 	<div id="goku" class = "notChosen col-md-2">
+	 	<div id="goku"  class= "col-md-2 toChoose">
 	 		<img src="assets/images/goku.png" alt="Goku">
 	 	</div>
-	 	 <div id="vegeta" class = "notChosen col-md-2">
+	 	 <div id="vegeta"  class= "col-md-2 toChoose"">
 	 		<img src="assets/images/vegeta.jpg" alt="vegeta">
 	 	</div>
-	 	 <div id ="piccolo" class = "notChosen col-md-2">
+	 	 <div id ="piccolo" class= "col-md-2 toChoose"">
 	 		<img src="assets/images/piccolo.jpg" alt="piccolo">
 	 	</div>
-	 	 <div id = "frieza" class = "notChosen col-md-2">
+	 	 <div id = "frieza" class= "col-md-2 toChoose"">
 	 		<img src="assets/images/frieza.png" alt="frieza">
 	 	</div>
 	</div>
@@ -27,14 +27,15 @@
 	</div> 
 	<div class="fightField row">
 		<div class="chosen">
-			<p class = "name"> </p> 
-			<p class = "health"> </p> 
+		<p id="chosenName"> </p>
+		<p id="chosenHealth"> </p>	
 		</div>  
 		<div class = "toFight">
-			<p class = "name"> </p> 
-			<p class = "health"> </p> 
+			<p id="badguyName"> </p> 
+			<p id="badGuyName"> </p> 
 		</div>
 		<div class = "fight-info">
+			<button type="button" class="btn btn-danger btn-attack">Attack</button>
 			<p class = "info"> </p> 
 		</div>
 	</div>

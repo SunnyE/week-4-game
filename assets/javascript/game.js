@@ -33,9 +33,10 @@ var piccolo = {
 var chosen; 
 var badGuy;
 function choosePlayer() {
-		$('.chosen div').append(this);
+		$('.enemey').append($('.toChoose'));
+		$('.chosen').append(this);
 		chosen = $(this).attr('id');
-		$('.enemey').append($('charlist'));
+		
 		if (chosen == "piccolo") {
 			chosen = piccolo;
 		} 
@@ -48,7 +49,10 @@ function choosePlayer() {
 		if (chosen == "frieza") {
 			chosen = frieza;
 		} 
-		$('.chosen .name').html(chosen.name);
+		$('#chosenName').html(chosen.name);
+		$('.toChoose').on('click', pickEnemy);
+
+
 }
 
 function pickEnemy (){
@@ -66,17 +70,21 @@ function pickEnemy (){
 		if (badGuy == "piccolo") {
 			badGuy = piccolo;
 		}
-		$('.toFight .name').html(badGuy.name);
+		$('#badguyName').html(badGuy.name);
 
 }
-
+if(badGuy != "unfined"){
+	$('.toChoose').click(function(){
+    	$('.toChoose').unbind('click', pickEnemy);
+    });
+}
 
 function attack () { 
 	badGuy.health -= chosen.attackPower;
 	chosen.health -= badGuy.counterAtk;
 	chosen.attackPower += chosen.attackAdd; 
-	$('.chosen .health').html(chosen.health);
-	$('.toFight .health').html(badGuy.health);
+	$('#chosenHealth').html(chosen.health);
+	$('#badGuyHealth').html(badGuy.health);
 
 
 	if(chosen.health <= 0 || badGuy.health <= 0) { 
@@ -101,9 +109,11 @@ function restart() {
 }
 
 $(document).ready(function(){
-		$('.charlist').on('click', choosePlayer);
+		$('.toChoose').on('click', choosePlayer);
+		$('.toChoose').click(function(){
+        $('.toChoose').unbind('click', choosePlayer);
+     });
 
-		$('.enemey').on('click', pickEnemy);
 
 		$('.btn-attck').click(attack); 
 
