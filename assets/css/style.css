@@ -5,4 +5,33 @@ img {
 
 body {
 	padding:50px;
+	background-image: url('../images/background.png');
+}
+.toChoose {
+	text-align: center;
+	background-color: white;
+	height:250px;
+	width:300px;
+	margin-right:20px;
+}
+
+.jumbotron {
+	background-color: 	transparent;
+	text-align: center;
+}
+.enemey {
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.fightField {
+	position: relative;
+}
+
+.chosen p  {
+	text-align: center;
+}
+.toFight p {
+	text-align: center;
 }

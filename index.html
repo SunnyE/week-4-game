@@ -8,35 +8,45 @@
 	<link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<div class = "charlist row">
+	<div class = "jumbotron">
+	<h1> DBZ FIGHTATORIUM </h1>
+	</div>
+	<div class = "charlist row centered">
 	 	<div id="goku"  class= "col-md-2 toChoose">
+	 		<p> Goku </p>
 	 		<img src="assets/images/goku.png" alt="Goku">
+	 		<p class = "health"> 175 </p>
 	 	</div>
 	 	 <div id="vegeta"  class= "col-md-2 toChoose"">
+	 	 	<p> Vegeta </p>
 	 		<img src="assets/images/vegeta.jpg" alt="vegeta">
+	 		<p class = "health"> 180 </p>
 	 	</div>
 	 	 <div id ="piccolo" class= "col-md-2 toChoose"">
+	 	 	<p> Piccolo </p>
 	 		<img src="assets/images/piccolo.jpg" alt="piccolo">
+	 		<p class = "health"> 250 </p>
 	 	</div>
 	 	 <div id = "frieza" class= "col-md-2 toChoose"">
+	 	 	<p> Frieza </p>
 	 		<img src="assets/images/frieza.png" alt="frieza">
+	 		<p class = "health"> 140 </p>
 	 	</div>
 	</div>
 	<div class = "enemey row">
 
 	</div> 
 	<div class="fightField row">
-		<div class="chosen">
-		<p id="chosenName"> </p>
-		<p id="chosenHealth"> </p>	
-		</div>  
-		<div class = "toFight">
-			<p id="badguyName"> </p> 
-			<p id="badGuyHealth"> </p> 
-		</div>
-		<div class = "fight-info">
-			<button type="button" class="btn btn-danger btn-attack">Attack</button>
-			<p class = "info"> </p> 
+		<div class="chosen col-md-3">
+		
+		</div> 
+		<div class = "fight-info col-md-3">
+			
+			<p class = "info"> </p>
+			<p class = "attack-info"> </p>
+			<p class = "counter-attack-info"> </p>
+		</div> 
+		<div class = "toFight col-md-3">
 		</div>
 	</div>
 <script type="text/javascript" src="assets/javascript/game.js"></script>

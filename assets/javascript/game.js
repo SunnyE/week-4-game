@@ -49,8 +49,7 @@ function choosePlayer() {
 		if (chosen == "frieza") {
 			chosen = frieza;
 		} 
-		$('#chosenName').html(chosen.name);
-		$('#chosenHealth').html(chosen.health)
+		$('#chosenHealth').html(chosen.health);
 		$('.toChoose').on('click', pickEnemy);
 
 
@@ -71,44 +70,57 @@ function pickEnemy (){
 		if (badGuy == "piccolo") {
 			badGuy = piccolo;
 		}
-		$('#badguyName').html(badGuy.name);
 		$('#badGuyHealth').html(badGuy.health)
+		$('.info').html("You think you can beat the mighty " + badGuy.name + "!");
+		$('.fight-info').append('<button class="btn-attack btn btn-danger">Attack</button>');
+		$('.btn-attack').click(attack);
 
 }
-if(badGuy != "unfined"){
+if(badGuy != "undefined"){
 	$('.toChoose').click(function(){
     	$('.toChoose').unbind('click', pickEnemy);
     });
 }
 
+
+
 function attack () { 
 	badGuy.health -= chosen.attackPower;
 	chosen.health -= badGuy.counterAtk;
 	chosen.attackPower += chosen.attackAdd; 
-	$('#chosenHealth').html(chosen.health);
-	$('#badGuyHealth').html(badGuy.health);
-
+	$('.toFight .health').html(badGuy.health);
+	$('.chosen .health').html(chosen.health);
+	$('.attack-info').html("You attacked " + badGuy.name + " for " + chosen.attackPower);
+	$('.counter-attack-info').html("You we're counter attacked by " + badGuy.name + " for " + badGuy.counterAtk);
 
 	if(chosen.health < 1 || badGuy.health < 1) { 
 		if(chosen.health < 1) { 
 			$('.info').html("You have lost the fight!");
-			$('btn-attack').on('click', restart);
-		} else { 
+			$('.btn-attack').remove();
+			$('.fight-info').append('<button class="restart btn btn-danger">Restart</button>');
+			$('.restart').click(restart);
+		} else if (badGuy.health < 1){ 
 			$('.info').html("You have beaten " + badGuy.name + "!");
 			$('.toFight div').remove();
+			$('.btn-attack').remove();
 			$('.toChoose').on('click', pickEnemy);
 		}
-		if($('.enemey div').length== 0) {
-			$('.info').hmtl("You have won the fight!");
-			$('btn-attack').on('click', restart);
+		if($('.enemey div').length== 0 && badGuy.health < 1) {
+			$('.info').html("You have won the fight!");
+			$('.btn-attack').remove();
+			$('.fight-info').append('<button class="restart btn btn-danger">Restart</button>');
+			$('.restart').click(restart);
+
 
 		}
 	}
 }
-
+if(badGuy == 'undefined'){
+	$('.btn-attack').remove();
+}
 function restart() {
 	location.reload();
-	$('.btn-attck').on('click', attack);
+	
 }
 
 $(document).ready(function(){
@@ -116,9 +128,5 @@ $(document).ready(function(){
 		$('.toChoose').click(function(){
         $('.toChoose').unbind('click', choosePlayer);
      });
-
-
-		$('.btn-attack').click(attack); 
-
-
+		
 });
