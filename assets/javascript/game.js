@@ -33,11 +33,11 @@ var piccolo = {
 var chosen; 
 var badGuy;
 function choosePlayer() {
-		$('.chosen').append(this);
+		$('.chosen div').append(this);
 		chosen = $(this).attr('id');
 		$('.enemey').append($('charlist'));
-			if (chosen == "piccolo") {
-		chosen = piccolo;
+		if (chosen == "piccolo") {
+			chosen = piccolo;
 		} 
 		if (chosen == "vegeta") {
 			chosen = vegeta;
@@ -51,7 +51,7 @@ function choosePlayer() {
 		$('.chosen .name').html(chosen.name);
 }
 
-function pickEnemy {
+function pickEnemy (){
 		$('.toFight').append(this);
 		badGuy = $(this).attr('id');
 		if (badGuy == "frieza") {
